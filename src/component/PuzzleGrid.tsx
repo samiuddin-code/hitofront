@@ -15,7 +15,7 @@ const PuzzleGrid: React.FC<{ difficulty: string }> = ({ difficulty }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get<PuzzleResponse>(`http://localhost:3001/puzzle/generate?difficulty=${difficulty}`);
+      const response = await axios.get<PuzzleResponse>(`http://159.89.104.127:3001/puzzle/generate?difficulty=easy=${difficulty}`);
       if (response.data?.grid) {
         const puzzle = response.data.grid.map((row) =>
           row.map((value) => ({ value, isSelected: false }))
